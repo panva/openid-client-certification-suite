@@ -1,0 +1,22 @@
+{
+  "name": "openid-client-java-suite-certification",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --delay --timeout 60000 runner.js"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "got": "^9.6.0",
+    "jose": "^1.16.2",
+    "mocha": "^6.2.2",
+    "ms": "^2.1.2",
+    "open": "^7.0.0",
+    "openid-client": "^3.9.0",
+    "selfsigned": "^1.10.7"
+  },
+  "devDependencies": {
+    "standard": "^14.3.1"
+  }
+}
