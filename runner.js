@@ -20,7 +20,7 @@ const {
   ALIAS = 'openid-client',
   VARIANT = 'mtls',
   PLAN_NAME = 'fapi-rw-id2-client-test-plan',
-  SUITE_ACCESS_TOKEN = '5t2Z8kSqBb2IREMSf/mULVEr5E7LI5oODrtrQW3kXqTFD0uBctEnRoe8zv8n6GTD40yph4MCdxpY6l/2BNRnPQ==',
+  SUITE_ACCESS_TOKEN,
   SUITE_BASE_URL = 'https://www.certification.openid.net',
   ONLY,
   OPEN_PLAN,
