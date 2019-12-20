@@ -24,7 +24,8 @@ const {
   SUITE_BASE_URL = 'https://www.certification.openid.net',
   ONLY,
   OPEN_PLAN,
-  OPEN_MODULE
+  OPEN_MODULE,
+  DEBUG_TO_LOG
 } = process.env;
 
 (async () => {
@@ -108,10 +109,12 @@ const {
         await runner.waitForState({ moduleId, timeout: 5 * 1000, interval: 100, states: new Set(['WAITING']), results: new Set() })
         debug('Running %s', moduleFile)
         const moduleDebug = Debug(moduleName)
-        const stream = createWriteStream(`logs/test-log-${moduleName}-${moduleId}.txt`)
-        stream.write(`URL: ${moduleUrl}\n\n`)
-        moduleDebug.log = (...args) => {
-          stream.write(`${util.format(...args)}\n\n`)
+        if (DEBUG_TO_LOG) {
+          const stream = createWriteStream(`logs/test-log-${moduleName}-${moduleId}.txt`)
+          stream.write(`URL: ${moduleUrl}\n\n`)
+          moduleDebug.log = (...args) => {
+            stream.write(`${util.format(...args)}\n\n`)
+          }
         }
         return Promise.all([
           runner.waitForState({ moduleId }),
