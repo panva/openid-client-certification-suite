@@ -12,7 +12,7 @@ module.exports = async ({ variant, issuer, client, debug }) => {
     }),
     {
       name: 'RPError',
-      message: /^id_token expired, now \d+, exp \d+$/
+      message: /^JWT expired, now \d+, exp \d+$/
     }
   )
 }

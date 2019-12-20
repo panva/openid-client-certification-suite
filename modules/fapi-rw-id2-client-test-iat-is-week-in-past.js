@@ -12,7 +12,7 @@ module.exports = async ({ variant, issuer, client, debug }) => {
     }),
     {
       name: 'RPError',
-      message: /^id_token issued too far in the past, now \d+, iat \d+$/
+      message: /^JWT issued too far in the past, now \d+, iat \d+$/
     }
   )
 }
