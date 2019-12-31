@@ -12,7 +12,7 @@ async function greenPath ({ issuer: identifier, debug, variant, params, metadata
   const response_type = 'code id_token'
 
   let token_endpoint_auth_method
-  switch (variant) {
+  switch (JSON.parse(variant).client_auth_type) {
     case 'mtls':
       token_endpoint_auth_method = 'self_signed_tls_client_auth'
       break
@@ -20,7 +20,7 @@ async function greenPath ({ issuer: identifier, debug, variant, params, metadata
       token_endpoint_auth_method = 'private_key_jwt'
       break
     default:
-      throw new Error('invalid variant')
+      throw new Error('invalid client_auth_type variant')
   }
 
   const keystore = jose.JWKS.asKeyStore(metadata.jwks)
