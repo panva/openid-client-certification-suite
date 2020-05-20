@@ -63,26 +63,16 @@ const {
   let PLAN_ID
   let MODULES
 
-  if (!process.env.PLAN_ID) {
-    const plan = await runner.createTestPlan({
-      configuration,
-      planName: PLAN_NAME,
-      variant
-    });
+  const plan = await runner.createTestPlan({
+    configuration,
+    planName: PLAN_NAME,
+    variant
+  });
 
-    ({ id: PLAN_ID, modules: MODULES } = plan)
+  ({ id: PLAN_ID, modules: MODULES } = plan)
+  MODULES = MODULES.map(({ testModule }) => testModule)
 
-    debug('Created test plan, new id %s', PLAN_ID)
-  } else {
-    ({ PLAN_ID } = process.env)
-
-    const { modules } = await runner.getTestPlan({
-      planId: PLAN_ID
-    })
-
-    MODULES = modules.map((module) => module.testModule)
-    debug('Loaded test plan id %s', PLAN_ID)
-  }
+  debug('Created test plan, new id %s', PLAN_ID)
 
   const planDetail = util.format('%s/plan-detail.html?plan=%s', SUITE_BASE_URL, PLAN_ID)
 
