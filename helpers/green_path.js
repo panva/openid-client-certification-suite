@@ -124,7 +124,7 @@ async function greenPath ({ issuer: identifier, debug, variant, params, metadata
   debug('processed callback', JSON.stringify(tokens, null, 4))
   let resource
   if (tokens.access_token) {
-    resource = await client.resource(accountsEndpoint, tokens)
+    resource = await client.requestResource(accountsEndpoint, tokens)
     debug('resource endpoint response', JSON.stringify(JSON.parse(resource.body), null, 4))
   }
   const claims = tokens.claims()
