@@ -7,16 +7,16 @@
     "test": "mocha --delay --timeout 60000 runner.js"
   },
   "dependencies": {
-    "debug": "^4.1.1",
+    "debug": "^4.3.1",
     "got": "^9.6.0",
-    "jose": "^1.16.2",
-    "mocha": "^6.2.2",
-    "ms": "^2.1.2",
-    "open": "^7.0.0",
-    "openid-client": "^3.9.0",
-    "selfsigned": "^1.10.7"
+    "jose": "^2.0.4",
+    "mocha": "^8.3.1",
+    "ms": "^2.1.3",
+    "open": "^8.0.2",
+    "openid-client": "^4.4.2",
+    "selfsigned": "^1.10.8"
   },
   "devDependencies": {
-    "standard": "^14.3.1"
+    "standard": "^14.3.4"
   }
 }
