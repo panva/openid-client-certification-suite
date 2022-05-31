@@ -90,7 +90,9 @@ async function greenPath ({
 
     if (
       url.href === issuer.token_endpoint ||
+      url.href === issuer.mtls_endpoint_aliases?.token_endpoint ||
       url.href === issuer.pushed_authorization_request_endpoint ||
+      url.href === issuer.mtls_endpoint_aliases?.pushed_authorization_request_endpoint ||
       url.href === accountsEndpoint
     ) {
       log('adding mTLS key and certificate')
@@ -100,7 +102,7 @@ async function greenPath ({
       }
     }
 
-    return undefined
+    return {}
   }
 
   const codeVerifier = pkce ? generators.codeVerifier() : undefined
@@ -166,7 +168,7 @@ async function greenPath ({
   const tokens = await client[oauthCallback ? 'oauthCallback' : 'callback'](
     redirect_uri,
     callbackParams,
-    { response_type, nonce, state, jarm, code_verifier: codeVerifier, scope }
+    { response_type, nonce, state, jarm, code_verifier: codeVerifier }
   ).catch((error) => {
     log('failed to process callback:', error.message)
     throw error
