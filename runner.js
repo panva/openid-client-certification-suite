@@ -50,7 +50,7 @@ const planDefaults = {
   },
   'fapi1-advanced-final-client-test-plan': {
     fapi_profile: 'plain_fapi',
-    fapi_jarm_type: 'oidc',
+    fapi_client_type: 'oidc',
     fapi_auth_request_method: 'by_value',
     fapi_response_mode: 'plain_response',
     client_auth_type: 'private_key_jwt'

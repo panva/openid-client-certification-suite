@@ -28,7 +28,7 @@ async function greenPath ({
     response_type = 'code'
   }
 
-  const oauthCallback = variant.fapi_jarm_type === 'plain_oauth'
+  const oauthCallback = variant.fapi_client_type === 'plain_oauth'
 
   let token_endpoint_auth_method
   switch (variant.client_auth_type) {

@@ -23,7 +23,7 @@ module.exports = async ({ variant, SUITE_BASE_URL }) => {
   }).catch(generate)
   await client2.generate('RSA', 2048, { use: 'enc', alg: 'RSA-OAEP-256' })
 
-  const { fapi_jarm_type: fapiJarmType } = variant
+  const { fapi_client_type: fapiClientType } = variant
 
   const configuration = {
     alias: ALIAS,
@@ -36,7 +36,7 @@ module.exports = async ({ variant, SUITE_BASE_URL }) => {
     client: {
       client_id: `client-id-${ALIAS}`,
       scope:
-        fapiJarmType === 'plain_oauth'
+        fapiClientType === 'plain_oauth'
           ? 'All your base are belong to us'
           : 'openid',
       redirect_uri: 'https://openid-client.local/cb',
@@ -46,7 +46,7 @@ module.exports = async ({ variant, SUITE_BASE_URL }) => {
     client2: {
       client_id: `client2-id-${ALIAS}`,
       scope:
-        fapiJarmType === 'plain_oauth'
+        fapiClientType === 'plain_oauth'
           ? 'All your base are belong to us'
           : 'openid',
       redirect_uri: 'https://openid-client2.local/cb',
