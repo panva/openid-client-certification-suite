@@ -151,7 +151,7 @@ async function greenPath ({
     const { request_uri } = await client.pushedAuthorizationRequest({
       request: requestObject
     })
-    url = client.authorizationUrl({ request_uri })
+    url = client.authorizationUrl({ request_uri, scope: null, response_type: null, redirect_uri: null })
   } else {
     url = client.authorizationUrl(authorizationParams)
   }
